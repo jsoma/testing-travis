@@ -2,12 +2,12 @@
 
 describe('JavaScript basics', () => {
   test('Measuring the length of a list', () => {
-    let numbers = [1, 2, 3, 4]
+    var numbers = [1, 2, 3, 4]
     expect(numbers.length).toBe(4)
   })
 
   test('Checking out some math', () => {
-    let sum = 4 + 5
+    var sum = 4 + 5
     expect(sum).toBe(9)
   })
 })

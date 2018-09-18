@@ -1,28 +1,28 @@
 /* global describe test expect document */
 
-const d3 = require('d3')
+var d3 = require('d3')
 
 /* Fill in our fake web page with our actual index.html */
-const fs = require('fs')
+var fs = require('fs')
 document.body.innerHTML = fs.readFileSync('src/index.html')
 
 /* Run the code for our chart */
-const chart = require('../src/bar-chart')
+var chart = require('../src/bar-chart')
 
-const svg = d3.select('#bar-chart')
+var svg = d3.select('#bar-chart')
 
 /* Unit tests */
 
 describe('Testing the xPositionScale', () => {
   test('Make sure it knows about different countries', () => {
-    let countries = chart.xPositionScale.domain()
+    var countries = chart.xPositionScale.domain()
     expect(countries.length).toBeGreaterThan(10)
   })
 })
 
 describe('Clicking the Africa button', () => {
   test('African places become bright blue', () => {
-    let circle = svg.select('rect.africa')
+    var circle = svg.select('rect.africa')
     expect(circle.attr('fill')).toBe('lightgrey')
 
     d3.select('#africa-btn').dispatch('click')
@@ -31,7 +31,7 @@ describe('Clicking the Africa button', () => {
   })
 
   test('Non-african places stay light grey', () => {
-    let circle = svg.select('rect.asia')
+    var circle = svg.select('rect.asia')
     expect(circle.attr('fill')).toBe('lightgrey')
 
     d3.select('#africa-btn').dispatch('click')

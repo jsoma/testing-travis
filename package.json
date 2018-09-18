@@ -30,9 +30,9 @@
     "prettier": "^1.14.2"
   },
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
     "d3": "^5.7.0",
     "jest": "^23.6.0",
-    "node-fetch": "^2.2.0",
-    "parcel": "^1.9.7"
+    "node-fetch": "^2.2.0"
   }
 }

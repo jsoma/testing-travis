@@ -1,11 +1,11 @@
 /* global jest */
 
-const fetchMock = require('fetch-mock')
-const fs = require('fs')
-const glob = require('glob')
-const path = require('path')
+var fetchMock = require('fetch-mock')
+var fs = require('fs')
+var glob = require('glob')
+var path = require('path')
 
-const filenames = glob.sync('src/*.csv').map(name => path.basename(name))
+var filenames = glob.sync('src/*.csv').map(name => path.basename(name))
 
 filenames.forEach(mockFilename => {
   // Parcel makes us use require() for filenames, so it knows the files are
@@ -22,6 +22,6 @@ filenames.forEach(mockFilename => {
   // Read in the contents of the file. When it asks for the 'fake' file,
   // just give it back the real file's contents.
 
-  const contents = fs.readFileSync('src/' + mockFilename, 'utf8')
+  var contents = fs.readFileSync('src/' + mockFilename, 'utf8')
   fetchMock.get(mockFilename, contents)
 })
